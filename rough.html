@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: "Montserrat-Regular", sans-serif;
+            background: linear-gradient(to right, #ab110f, black);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    
+        .wrapper {
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        form {
+            padding: 40px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    
+        h3 {
+            font-family: "ElMessiri-SemiBold", sans-serif;
+            text-transform: uppercase;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+    
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+    
+        input:focus,
+        select:focus {
+            border-color: #ef822a;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(239, 130, 42, 0.1);
+        }
+    
+        button {
+            background-color: #5cab7d;
+            color: white;
+            width: 100%;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+    
+        button:hover {
+            background-color: #4a926a;
+        }
+    
+        @media (max-width: 768px) {
+            form {
+                width: 100%;
+                padding: 20px;
+            }
+    
+            h3 {
+                font-size: 1.5rem;
+            }
+    
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 16px;
+            }
+    
+            button {
+                padding: 12px 0;
+            }
+        }
+    </style>
+
+<script>
+    function toggleFields() {
+        var role = document.getElementById("role").value;
+        var professionInput = document.getElementById("profession");
+        var directorFields = document.getElementById("director_fields");
+        var studentFields = document.getElementById("student_fields");
+
+        // Show director-specific fields
+        if (role === "director") {
+            directorFields.style.display = "block";
+            studentFields.style.display = "none";
+            // Make profession field required
+            professionInput.required = true;
+        } 
+        // Show student-specific fields
+        else if (role === "student") {
+            directorFields.style.display = "none";
+            studentFields.style.display = "block";
+            // Remove required attribute from profession field
+            professionInput.required = false;
+        } 
+        // Hide both if no role selected
+        else {
+            directorFields.style.display = "none";
+            studentFields.style.display = "none";
+            // Remove required attribute from profession field
+            professionInput.required = false;
+        }
+    }
+</script>
+
+</head>
+<body>
+    <div class="wrapper">
+        <form action="/generate_ticket" method="POST">
+            <h3>Register Now</h3>
+            
+            <!-- Name Field -->
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Name" required>
+            </div>
+            
+            <!-- Mobile Number Field -->
+            <div class="form-group">
+                <input type="text" name="email" placeholder="Mobile Number" required>
+            </div>
+            
+            <!-- Select Role -->
+            <div class="form-group">
+                <select name="role" id="role" onchange="toggleFields()" required>
+                    <option value="" hidden>Select Role</option>
+                    <option value="student">Iferain</option>
+                    <option value="director">Higher Studies</option>
+                </select>
+            </div>
+        
+            <!-- Student-specific Fields -->
+            <div id="student_fields" style="display:none;">
+                <div class="form-group">
+                    <select name="batch" required>
+                        <option value="" disabled>Batch</option>
+                        <option value="batch1">i1</option>
+                        <option value="batch2">i2</option>
+                        <option value="batch3">i3</option>
+                        <option value="batch4">i4</option>
+                        <option value="batch5">i5</option>
+                        <option value="batch6">i6</option>
+                        <option value="batch7">i7</option>
+                        <option value="batch8">i8</option>
+                        <option value="batch9">i9</option>
+                        <option value="batch10">i10</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <select name="status" required>
+                        <option value="" disabled>Current Status</option>
+                        <option value="student">Student</option>
+                        <option value="passout">Passout</option>
+                    </select>
+                </div>
+            </div>
+        
+            <!-- Director-specific Fields -->
+            <div id="director_fields" style="display:none;">
+                <div class="form-group">
+                    <input type="text" name="profession" id="profession" placeholder="Profession" required>
+                </div>
+            </div>
+        
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
