@@ -1,6 +1,6 @@
 /******************************************************************
   Template Name: Manup
-  Description: Manup Event HTML Template
+  Dechcription: Manup Event HTML Template
   Author: Colorlib
   Author URI: http://colorlib.com
   Version: 1.0
@@ -171,8 +171,8 @@ ol {
 .price-item .tr-tag,
 .schedule-tab .nav-tabs .nav-item .nav-link.active,
 .site-btn {
-	background-image: -o-linear-gradient(330deg, #ee8425 0%, #f9488b 100%), -o-linear-gradient(330deg, #ee8425 0%, #f9488b 100%);
-	background-image: linear-gradient(120deg, #ee8425 0%, #f9488b 100%), linear-gradient(120deg, #ee8425 0%, #f9488b 100%);
+	background-image: -o-linear-gradient(330deg, black 0%, red 100%), -o-linear-gradient(330deg, #ee8425 0%, #f9488b 100%);
+	background-image: linear-gradient(120deg, black 0%, red 100%), linear-gradient(120deg, #ee8425 0%, #f9488b 100%);
 }
 
 /* buttons */
@@ -392,7 +392,10 @@ ol {
 
 .hero-section {
 	padding-top: 155px;
+	/* background-position: center -400px; */
+	
 }
+
 
 .hero-section .hero-text {
 	padding-top: 8px;
@@ -497,6 +500,7 @@ ol {
 .ha-pic img {
 	min-width: 100%;
 	border-radius: 2px;
+	padding-top: 74px;
 }
 
 .ha-text {
