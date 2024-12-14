@@ -5,13 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Generate Ticket</title>
     <style>
-        canvas {
-            border: 1px solid #000;
-        }
         .container {
             text-align: center;
         }
+        .canvas-container {
+            position: relative;
+            display: inline-block;
+        }
+        #ticketCanvas {
+            border: 1px solid #000;
+        }
+        .text-box {
+            position: absolute;
+            top: 63%; /* Vertical center */
+            left: 10%; /* Horizontal offset */
+            width: 99%;
+            height: 130px;
+            margin-left: -33px;
+            
+            background-color: none; /* Semi-transparent background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-family: 'Bebas Neue', sans-serif;
+            color: black;
+            text-align: center;
+        }
     </style>
+
+    <!-- Import Bebas Neue font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -24,7 +48,12 @@
 
         <br><br>
 
-        <canvas id="ticketCanvas"></canvas> <!-- No fixed width/height -->
+        <div class="canvas-container">
+            <canvas id="ticketCanvas"></canvas> <!-- Canvas for the image -->
+            <div id="textBox" class="text-box" style="display: none;"> <!-- The div that mimics the text box -->
+                Name Here
+            </div>
+        </div>
 
         <br><br>
 
@@ -46,27 +75,37 @@
             const img = new Image();
             img.src = 'img/ticket.jpg'; // Replace with your image path
             img.onload = () => {
-                // Set the canvas size to match the image's actual dimensions
-                canvas.width = img.width;
-                canvas.height = img.height;
+                // Calculate the aspect ratio of the image
+                const imgAspectRatio = img.width / img.height;
+
+                // Get the available space for the canvas (viewport size)
+                const canvasWidth = window.innerWidth * 0.8;  // 80% of window width
+                const canvasHeight = window.innerHeight * 0.6; // 60% of window height
+
+                // Calculate the dimensions of the image to fit within the available space
+                let scaledWidth, scaledHeight;
+                if (canvasWidth / canvasHeight > imgAspectRatio) {
+                    scaledHeight = canvasHeight;
+                    scaledWidth = scaledHeight * imgAspectRatio;
+                } else {
+                    scaledWidth = canvasWidth;
+                    scaledHeight = scaledWidth / imgAspectRatio;
+                }
+
+                // Set canvas size to the scaled image size
+                canvas.width = scaledWidth;
+                canvas.height = scaledHeight;
 
                 // Clear the canvas
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                // Draw the base image without scaling
-                ctx.drawImage(img, 0, 0);
+                // Draw the image scaled to fit the canvas
+                ctx.drawImage(img, 0, 0, scaledWidth, scaledHeight);
 
-                // Set text properties
-                ctx.font = "30px Arial";
-                ctx.fillStyle = "black";
-                ctx.textAlign = "center";
-                ctx.textBaseline = "middle";
-
-                // Add name on top of the image (positioned at the center)
-                ctx.fillText(name, canvas.width / 2, canvas.height / 2);
-
-                // Show the download button
-                document.getElementById("downloadBtn").style.display = "inline";
+                // Show the div box with text
+                const textBox = document.getElementById("textBox");
+                textBox.style.display = "flex"; // Display the text box div
+                textBox.innerHTML = name; // Set the name inside the box
             };
         }
 
