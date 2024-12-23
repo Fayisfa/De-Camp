@@ -4,42 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <title>Gallery | De Camp 4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .gallery-header {
+            position: relative;
+            background: url('img/decamp_hero_section.png') no-repeat center 70%/cover;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .gallery-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 128, 0.5);
+            z-index: -1;
+        }
+
+        .gallery-header h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .gallery-header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
         .gallery-section {
-            padding: 50px 0;
-            background: linear-gradient(to bottom, #005A85, #8FA785);
+            padding: 50px 10px;
         }
 
         .gallery-title {
-            color: white;
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2rem;
-            font-weight: bold;
         }
 
-        .gallery-container {
+        .gallery-title h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #005A85;
+        }
+
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            padding: 15px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
         }
 
         .gallery-item {
             position: relative;
             overflow: hidden;
             border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .gallery-item img {
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            object-fit: cover;
             transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
         .gallery-item:hover img {
@@ -50,76 +100,226 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
             background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
             opacity: 0;
             transition: opacity 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
         }
 
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
         }
+
+        .gallery-overlay a {
+            font-size: 2rem;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-overlay a:hover {
+            transform: scale(1.2);
+        }
+
+        footer {
+            background-color: #005A85;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 767px) {
+            .gallery-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .gallery-header p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 
 <body>
+
+    
+    <!-- Header Section Begin -->
     <header class="header-section bg-gradient">
         <div class="container">
             <div class="logo">
                 <a href="./index.html">
-                    <img src="img/De Camp final.png" alt="Next Gen Conclave" class="img-fluid" style="max-height: 80px;">
-                </a>
+                <img src="img/De Camp final.png" alt="Next Gen Conclave" class="img-fluid" style="max-height: 80px; ">
+                                </a>
             </div>
+            <div class="nav-menu">
+                <nav class="mainmenu mobile-menu"> 
+                    <ul>
+                        <!-- <li class="active"><a href="./index.html">Home</a></li> -->
+                        <!-- <li><a href="./rough.html">About</a></li> -->
+                        <!-- <li><a href="./speaker.html">Speakers</a>
+                            <ul class="dropdown">
+                                <li><a href="#">Jayden</a></li>
+                                <li><a href="#">Sara</a></li>
+                                <li><a href="#">Emma</a></li>
+                                <li><a href="#">Harriet</a></li>
+                            </ul>
+                        </li> -->
+                        <!-- <li><a href="./schedule.html">Schedule</a></li> -->
+                        <!-- <li><a href="./blog.html">Blog</a></li> -->
+                        <!-- <li><a href="./contact.html">Contact Us</a></li> -->
+                    </ul>
+                </nav>
+                <!-- <a href="#" class="primary-btn top-btn"><i class="fa fa-ticket"></i> Ticket</a> -->
+            </div>
+            <div id="mobile-menu-wrap"></div>
         </div>
     </header>
+    <!-- Header End -->
 
+    <!-- Header Section Begin -->
+    <header class="gallery-header">
+        <div class="container">
+            <h1>Gallery</h1>
+            <p>Experience the moments of De Camp 4.0</p>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Gallery Section Begin -->
     <section class="gallery-section">
         <div class="container">
-            <h2 class="gallery-title">Event Gallery</h2>
-            <div class="gallery-container">
+            
+
+            <div class="gallery-grid">
+                <!-- Gallery Item 1 -->
                 <div class="gallery-item">
                     <img src="img/decamp/img1.jpeg" alt="Gallery Image 1">
-                    <div class="gallery-overlay">Image 1</div>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img1.jpeg" class="fas fa-search-plus"></a>
+                    </div>
                 </div>
+
+                <!-- Gallery Item 2 -->
                 <div class="gallery-item">
                     <img src="img/decamp/img2.jpeg" alt="Gallery Image 2">
-                    <div class="gallery-overlay">Image 2</div>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img2.jpeg" class="fas fa-search-plus"></a>
+                    </div>
                 </div>
+
+                <!-- Gallery Item 3 -->
                 <div class="gallery-item">
                     <img src="img/decamp/img3.jpeg" alt="Gallery Image 3">
-                    <div class="gallery-overlay">Image 3</div>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img3.jpeg" class="fas fa-search-plus"></a>
+                    </div>
                 </div>
+
+                <!-- Gallery Item 4 -->
                 <div class="gallery-item">
                     <img src="img/decamp/img4.jpeg" alt="Gallery Image 4">
-                    <div class="gallery-overlay">Image 4</div>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img4.jpeg" class="fas fa-search-plus"></a>
+                    </div>
                 </div>
+
+                <!-- Gallery Item 5 -->
                 <div class="gallery-item">
                     <img src="img/decamp/img5.jpeg" alt="Gallery Image 5">
-                    <div class="gallery-overlay">Image 5</div>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img5.jpeg" class="fas fa-search-plus"></a>
+                    </div>
                 </div>
+
+                <!-- Gallery Item 6 -->
                 <div class="gallery-item">
                     <img src="img/decamp/img6.jpeg" alt="Gallery Image 6">
-                    <div class="gallery-overlay">Image 6</div>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img6.jpeg" class="fas fa-search-plus"></a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+    <!-- Gallery Section End -->
 
+   
+    <!-- Footer Section Begin -->
+     
     <footer class="footer-section">
         <div class="container">
-            <p style="text-align: center; color: white;">&copy; 2024 De Camp 4.0. All rights reserved.</p>
+            <!-- <div class="partner-logo owl-carousel">
+                <a href="#" class="pl-table">
+                    <div class="pl-tablecell">
+                        <img src="img/partner-logo/logo-1.png" alt="">
+                    </div>
+                </a>
+                <a href="#" class="pl-table">
+                    <div class="pl-tablecell">
+                        <img src="img/partner-logo/logo-2.png" alt="">
+                    </div>
+                </a>
+                <a href="#" class="pl-table">
+                    <div class="pl-tablecell">
+                        <img src="img/partner-logo/logo-3.png" alt="">
+                    </div>
+                </a>
+                <a href="#" class="pl-table">
+                    <div class="pl-tablecell">
+                        <img src="img/partner-logo/logo-4.png" alt="">
+                    </div>
+                </a>
+                <a href="#" class="pl-table">
+                    <div class="pl-tablecell">
+                        <img src="img/partner-logo/logo-5.png" alt="">
+                    </div>
+                </a>
+                <a href="#" class="pl-table">
+                    <div class="pl-tablecell">
+                        <img src="img/partner-logo/logo-6.png" alt="">
+                    </div>
+                </a>
+            </div> -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-text">
+                        <!-- <div class="ft-logo">
+                            <a href="#" class="footer-logo"><img src="img/footer-logo.png" alt=""></a>
+                        </div> -->
+                        <!-- <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Speakers</a></li>
+                            <li><a href="#">Schedule</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul> -->
+                        <div class="copyright-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="ft-social">
+                            <a href="https://www.facebook.com/share/17aB6eEngZ/"><i class="fa fa-facebook"></i></a>
+                            <!-- <a href="https://x.com/ssfkerala"><i class="fa fa-twitter"></i></a> -->
+                            
+                            <a href="https://www.instagram.com/icam.ifercmc/profilecard/?igsh=M293ZGtkb3U0ZWw3"><i class="fa fa-instagram"></i></a>
+                            <a href="https://youtube.com/@iferonline"><i class="fa fa-youtube-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-
+    <!-- Footer Section End -->
+    <!-- Js Plugins -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
