@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+        .gallery-section {
+            padding: 50px 0;
+            background: linear-gradient(to bottom, #005A85, #8FA785);
+        }
+
+        .gallery-title {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header-section bg-gradient">
+        <div class="container">
+            <div class="logo">
+                <a href="./index.html">
+                    <img src="img/De Camp final.png" alt="Next Gen Conclave" class="img-fluid" style="max-height: 80px;">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="gallery-section">
+        <div class="container">
+            <h2 class="gallery-title">Event Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="img/decamp/img1.jpeg" alt="Gallery Image 1">
+                    <div class="gallery-overlay">Image 1</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/decamp/img2.jpeg" alt="Gallery Image 2">
+                    <div class="gallery-overlay">Image 2</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/decamp/img3.jpeg" alt="Gallery Image 3">
+                    <div class="gallery-overlay">Image 3</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/decamp/img4.jpeg" alt="Gallery Image 4">
+                    <div class="gallery-overlay">Image 4</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/decamp/img5.jpeg" alt="Gallery Image 5">
+                    <div class="gallery-overlay">Image 5</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/decamp/img6.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">Image 6</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section">
+        <div class="container">
+            <p style="text-align: center; color: white;">&copy; 2024 De Camp 4.0. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
