@@ -148,6 +148,46 @@
                 font-size: 1rem;
             }
         }
+
+
+        .gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-video {
+    width: 100%; /* Ensures the video matches the gallery item width */
+    height: auto; /* Maintains aspect ratio */
+    max-height: 300px; /* Sets a reasonable maximum height for landscape display */
+    object-fit: cover; /* Ensures video fills the container like an image */
+    display: block;
+}
+
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay effect */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1; /* Shows overlay on hover */
+}
+
+.fas.fa-search-plus,
+.fas.fa-play-circle {
+    font-size: 24px;
+    color: white;
+}
+
     </style>
 </head>
 
@@ -202,6 +242,14 @@
             
 
             <div class="gallery-grid">
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img6.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
                 <!-- Gallery Item 1 -->
                 <div class="gallery-item">
                     <img src="img/decamp/img1.jpeg" alt="Gallery Image 1">
@@ -249,6 +297,125 @@
                         <a href="img/decamp/img6.jpeg" class="fas fa-search-plus"></a>
                     </div>
                 </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img7.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img7.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img8.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img8.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img9.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img9.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img10.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img10.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img11.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img11.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img12.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img12.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img13.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img13.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img14.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img14.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item">
+                    <img src="img/decamp/img15.jpeg" alt="Gallery Image 6">
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/img15.jpeg" class="fas fa-search-plus"></a>
+                    </div>
+                </div>
+
+               
+                <!-- Gallery Item with Video -->
+                <div class="gallery-item">
+                    <video class="gallery-video" controls>
+                        <source src="img/decamp/video1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/video1.mp4" class="fas fa-play-circle"></a>
+                    </div>
+                </div>
+
+                 <!-- Gallery Item with Video -->
+                 <div class="gallery-item">
+                    <video class="gallery-video" controls>
+                        <source src="img/decamp/video2.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/video2.mp4" class="fas fa-play-circle"></a>
+                    </div>
+                </div>
+
+                 <!-- Gallery Item with Video -->
+                 <div class="gallery-item">
+                    <video class="gallery-video" controls>
+                        <source src="img/decamp/video3.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/video3.mp4" class="fas fa-play-circle"></a>
+                    </div>
+                </div>
+
+                 <!-- Gallery Item with Video -->
+                 <div class="gallery-item">
+                    <video class="gallery-video" controls>
+                        <source src="img/decamp/video4.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="gallery-overlay">
+                        <a href="img/decamp/video4.mp4" class="fas fa-play-circle"></a>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
